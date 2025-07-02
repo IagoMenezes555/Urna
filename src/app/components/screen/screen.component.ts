@@ -27,7 +27,7 @@ export class ScreenComponent implements DoCheck{
 
   tipoDeCandidato(){
     if(this.numero.length == 2){
-      this.quantidadeDeNumeros = "PREFEITO";
+      this.quantidadeDeNumeros = "PREFEITO ";
     }else if(this.numero.length == 4){
       this.quantidadeDeNumeros = "VEREADOR";
     }else{
