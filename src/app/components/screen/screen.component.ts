@@ -17,4 +17,8 @@ export class ScreenComponent {
   get partido(): string{
     return this.urnaService.partido;
   }
+
+  get imagem(): string{
+    return this.urnaService.imagem;
+  }
 }

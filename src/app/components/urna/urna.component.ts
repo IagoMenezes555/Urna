@@ -46,18 +46,19 @@ export class Prefeito extends Candidato {
 
   public obterTodos() {
     const list = [
-      { nome: 'Goku', partido: 'Sayajin', numero: '12', imagem: '' },
-      { nome: 'Batman', partido: 'Morcegão', numero: '11', imagem: '' },
-      { nome: 'Scooby', partido: 'Mistério', numero: '10', imagem: '' },
-      { nome: 'Vader', partido: 'Estrela', numero: '89', imagem: '' },
-      { nome: 'Homem Aranha', partido: 'Aranhas', numero: '25', imagem: '' },
+      { nome: 'Goku', partido: 'Sayajin', numero: '12', imagem: './goku.png' },
+      { nome: 'Batman', partido: 'Morcegão', numero: '11', imagem: './batman.png' },
+      { nome: 'Scooby-Doo', partido: 'Mistério', numero: '10', imagem: './scooby-doo.png' },
+      { nome: 'Vader', partido: 'Estrela', numero: '89', imagem: './vader.png' },
+      { nome: 'Homem Aranha', partido: 'Aranhas', numero: '25', imagem: './spider-man.png' },
     ];
 
     for(let i = 0; i < list.length; i++){
       if(this.numero == list[i].numero){
         this.partido = list[i].partido;
+        this.imagem = list[i].imagem;
         this.urnaService.partido = this.partido;
-        console.log(this.urnaService.partido);
+        this.urnaService.imagem = this.imagem;
       }
     }
   }
