@@ -10,22 +10,24 @@ import { DoCheck } from '@angular/core';
   templateUrl: './urna.component.html',
   styleUrl: './urna.component.scss',
 })
-export class UrnaComponent implements DoCheck{
-  prefeito: Prefeito
-  ultimoNumero = "";
+export class UrnaComponent implements DoCheck {
+  prefeito: Prefeito;
+  vereador: Vereador;
+  ultimoNumero = '';
 
-  constructor(private urnaService: UrnaService){
-    this.prefeito = new Prefeito(this.urnaService)
+  constructor(private urnaService: UrnaService) {
+    this.prefeito = new Prefeito(this.urnaService);
+    this.vereador = new Vereador(this.urnaService);
   }
 
-  ngDoCheck(){
-    const numeroAtual = this.urnaService.number
-    if(numeroAtual != this.ultimoNumero){
+  ngDoCheck() {
+    const numeroAtual = this.urnaService.number;
+    if (numeroAtual != this.ultimoNumero) {
       this.ultimoNumero = numeroAtual;
       this.prefeito.obterTodos();
+      this.vereador.obterTodos();
     }
   }
-  
 }
 
 export class Candidato {
@@ -34,29 +36,54 @@ export class Candidato {
   partido: string = '';
   imagem: string = '';
 
-  get numero(): string{
+  get numero(): string {
     return this.urnaService.number;
   }
 }
 
 export class Prefeito extends Candidato {
-  constructor (urnaService: UrnaService){
+  constructor(urnaService: UrnaService) {
     super(urnaService);
   }
 
   public obterTodos() {
     const list = [
-      { nome: 'Goku', partido: 'Sayajin', numero: '12', imagem: './goku.png' },
-      { nome: 'Batman', partido: 'Morcegão', numero: '11', imagem: './batman.png' },
-      { nome: 'Scooby-Doo', partido: 'Mistério', numero: '10', imagem: './scooby-doo.png' },
-      { nome: 'Vader', partido: 'Estrela', numero: '89', imagem: './vader.png' },
-      { nome: 'Homem Aranha', partido: 'Aranhas', numero: '25', imagem: './spider-man.png' },
+      {
+        nome: 'Goku',
+        partido: 'Sayajin',
+        numero: '12',
+        imagem: './goku.png',
+      },
+      {
+        nome: 'Batman',
+        partido: 'Morcegão',
+        numero: '11',
+        imagem: './batman.png',
+      },
+      {
+        nome: 'Scooby-Doo',
+        partido: 'Mistério',
+        numero: '10',
+        imagem: './scooby-doo.png',
+      },
+      {
+        nome: 'Vader',
+        partido: 'Estrela',
+        numero: '89',
+        imagem: './vader.png',
+      },
+      {
+        nome: 'Homem Aranha',
+        partido: 'Aranhas',
+        numero: '25',
+        imagem: './spider-man.png',
+      },
     ];
 
     let encontrou: boolean = false;
 
-    for(let i = 0; i < list.length; i++){
-      if(this.numero == list[i].numero){
+    for (let i = 0; i < list.length; i++) {
+      if (this.numero == list[i].numero) {
         this.partido = list[i].partido;
         this.imagem = list[i].imagem;
         this.nome = list[i].nome;
@@ -66,14 +93,64 @@ export class Prefeito extends Candidato {
         encontrou = true;
         break;
       }
-
     }
 
-    if(encontrou != true){
-        this.imagem = "./user.png";
-        this.urnaService.imagem = this.imagem;
-      }
+    if (encontrou != true) {
+      this.imagem = './user.png';
+      this.urnaService.imagem = this.imagem;
+      this.urnaService.nome = '';
+      this.urnaService.partido = '';
+    }
   }
 }
 
-export class Vereador extends Candidato {}
+export class Vereador extends Candidato {
+  constructor(urnaService: UrnaService) {
+    super(urnaService);
+  }
+  public obterTodos() {
+    const list = [
+      {
+        nome: 'Vegeta',
+        partido: 'Sayajin',
+        numero: '1212',
+        imagem: './vegeta.png',
+      },
+      {
+        nome: 'Robin',
+        partido: 'Morcegão',
+        numero: '1111',
+        imagem: './robin.png',
+      },
+      {
+        nome: 'Salsicha',
+        partido: 'Mistério',
+        numero: '1010',
+        imagem: './salsicha.png',
+      },
+      {
+        nome: 'Yoda',
+        partido: 'Estrela',
+        numero: '8989',
+        imagem: './yoda.png',
+      },
+      {
+        nome: 'Venom',
+        partido: 'Aranhas',
+        numero: '2525',
+        imagem: './venom.png',
+      },
+    ];
+
+    for (let i = 0; i < list.length; i++) {
+      if (this.numero == list[i].numero) {
+        this.partido = list[i].partido;
+        this.imagem = list[i].imagem;
+        this.nome = list[i].nome;
+        this.urnaService.partido = this.partido;
+        this.urnaService.imagem = this.imagem;
+        this.urnaService.nome = this.nome;
+      }
+    }
+  }
+}
