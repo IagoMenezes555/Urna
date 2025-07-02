@@ -13,4 +13,8 @@ export class ScreenComponent {
   get numero(): string {
     return this.urnaService.number;
   }
+
+  get partido(): string{
+    return this.urnaService.partido;
+  }
 }
