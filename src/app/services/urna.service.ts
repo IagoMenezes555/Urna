@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 export class UrnaService {
   number: string = "";
   partido: string = "";
-  imagem: string = "";
+  imagem: string = "./user.png";
 
   constructor() { }
 }

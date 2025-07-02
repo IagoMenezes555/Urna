@@ -53,14 +53,24 @@ export class Prefeito extends Candidato {
       { nome: 'Homem Aranha', partido: 'Aranhas', numero: '25', imagem: './spider-man.png' },
     ];
 
+    let encontrou: boolean = false;
+
     for(let i = 0; i < list.length; i++){
       if(this.numero == list[i].numero){
         this.partido = list[i].partido;
         this.imagem = list[i].imagem;
         this.urnaService.partido = this.partido;
         this.urnaService.imagem = this.imagem;
+        encontrou = true;
+        break;
       }
+
     }
+
+    if(encontrou != true){
+        this.imagem = "./user.png";
+        this.urnaService.imagem = this.imagem;
+      }
   }
 }
 
