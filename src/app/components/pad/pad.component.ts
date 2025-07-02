@@ -19,4 +19,9 @@ export class PadComponent {
       this.urnaService.number = this.number;
     }
   }
+
+  corrigir(){
+    this.number = this.number.slice(0, -1)
+    this.urnaService.number = this.number;
+  }
 }
