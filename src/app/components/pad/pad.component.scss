@@ -1,0 +1,62 @@
+.pad {
+  background-color: rgb(22, 22, 22);
+  height: 500px;
+  border: black solid 5px;
+  width: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  border-radius: 20px;
+
+  .buttons {
+    display: flex;
+    flex-wrap: wrap;
+    width: 200px;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 70px;
+
+    .numbers {
+      padding: 20px;
+      background-color: rgb(43, 43, 43);
+      border: black solid 2px;
+      border-radius: 20px;
+    }
+  }
+
+  .special {
+    background-color: rgb(10, 10, 10);
+    width: 320px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 20px;
+    border-radius: 15px;
+    border-width: 5px 0px 0px;
+    border-color: black;
+    border-style: solid;
+
+    .branco {
+      padding: 10px;
+      background-color: white;
+      border: black solid 2px;
+      border-radius: 20px;
+    }
+
+    .corrige {
+      padding: 10px;
+      background-color: red;
+      border: black solid 2px;
+      border-radius: 20px;
+    }
+
+    .confirma {
+      padding: 15px;
+      background-color: green;
+      border: black solid 2px;
+      border-radius: 20px;
+    }
+  }
+}
