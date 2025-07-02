@@ -20,7 +20,7 @@ export class PadComponent {
     }
   }
 
-  corrigir() {
+  corrige() {
     this.number = this.number.slice(0, -1);
     this.urnaService.number = this.number;
   }
@@ -28,6 +28,21 @@ export class PadComponent {
   branco() {
     this.urnaService.partido = 'BRANCO';
     this.urnaService.nome = 'BRANCO';
-    this.urnaService.imagem = "./user.png";
+    this.urnaService.imagem = './user.png';
+  }
+
+  votouPrefeito: boolean = false;
+  votouVereador: boolean = false;
+
+  confirma() {
+    if (this.urnaService.number.length == 2 && this.votouPrefeito == false) {
+      alert('Você votou pra prefeito');
+      this.votouPrefeito = true;
+    }
+
+    if (this.urnaService.number.length == 4 && this.votouVereador == false) {
+      alert('Você votou pra vereador');
+      this.votouVereador = true;
+    }
   }
 }
