@@ -14,14 +14,20 @@ export class PadComponent {
   numbers = [9, 8, 7, 6, 5, 4, 3, 2, 1, 0];
 
   numberClick(number: number) {
-    if(this.number.length < 4){
+    if (this.number.length < 4) {
       this.number = this.number + number;
       this.urnaService.number = this.number;
     }
   }
 
-  corrigir(){
-    this.number = this.number.slice(0, -1)
+  corrigir() {
+    this.number = this.number.slice(0, -1);
     this.urnaService.number = this.number;
+  }
+
+  branco() {
+    this.urnaService.partido = 'BRANCO';
+    this.urnaService.nome = 'BRANCO';
+    this.urnaService.imagem = "./user.png";
   }
 }
