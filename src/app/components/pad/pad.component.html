@@ -1,6 +1,6 @@
 <div class="pad">
   <div class="buttons">
-    <button class="numbers" *ngFor="let number of numbers">{{ number }}</button>
+    <button class="numbers" *ngFor="let number of numbers" (click)="numberClick(number)">{{ number }}</button>
   </div>
   <div class="special">
     <button class="branco">BRANCO</button>
