@@ -59,8 +59,10 @@ export class Prefeito extends Candidato {
       if(this.numero == list[i].numero){
         this.partido = list[i].partido;
         this.imagem = list[i].imagem;
+        this.nome = list[i].nome;
         this.urnaService.partido = this.partido;
         this.urnaService.imagem = this.imagem;
+        this.urnaService.nome = this.nome;
         encontrou = true;
         break;
       }

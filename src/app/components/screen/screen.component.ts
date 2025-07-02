@@ -11,6 +11,10 @@ import { DoCheck } from '@angular/core';
 export class ScreenComponent implements DoCheck{
   constructor(private urnaService: UrnaService){}
 
+  get nome(): string{
+    return this.urnaService.nome
+  }
+
   get numero(): string {
     return this.urnaService.number;
   }
